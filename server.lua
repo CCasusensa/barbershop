@@ -33,7 +33,7 @@ AddEventHandler('esx:playerDropped', function(source)
     local xPlayer = ESX.GetPlayerFromId(_source)
     local identifier = xPlayer.identifier
     if #postion > 0 then
-        if identifier == #postion[1] then
+        if identifier == postion[1] then
             table.remove(postion, 1)
         end
     end
