@@ -4,8 +4,7 @@ FiveM ESX barbershop like ninjadev
 ## Requirements
 * Dependencies For Full Functionality
   * [esx_skin](https://github.com/ESX-Org/esx_skin)
-
-## Download & Installation
+  
 
 # ninjadev video:
 https://streamable.com/ze8yf
