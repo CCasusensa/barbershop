@@ -1,5 +1,5 @@
 ESX = nil
-postion = {}
+position = {}
 
 TriggerEvent('esx:getSharedObject', function(obj)ESX = obj end)
 
@@ -16,14 +16,14 @@ AddEventHandler("barbershop:pay", function(source, price)
 end)
 
 
-ESX.RegisterServerCallback('barbershop:checkpostion', function(source, cb)
+ESX.RegisterServerCallback('barbershop:checkposition', function(source, cb)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
     local identifier = xPlayer.identifier
-    if #postion > 0 then
+    if #position > 0 then
         cb(false)
     else
-        table.insert(postion, identifier)
+        table.insert(position, identifier)
         cb(true)
     end
 end)
@@ -32,21 +32,21 @@ AddEventHandler('esx:playerDropped', function(source)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
     local identifier = xPlayer.identifier
-    if #postion > 0 then
-        if identifier == postion[1] then
-            table.remove(postion, 1)
+    if #position > 0 then
+        if identifier == position[1] then
+            table.remove(position, 1)
         end
     end
 end)
 
-RegisterServerEvent('barbershop:removepostion')
-AddEventHandler('barbershop:removepostion', function()
+RegisterServerEvent('barbershop:removeposition')
+AddEventHandler('barbershop:removeposition', function()
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
     local identifier = xPlayer.identifier
-    if #postion > 0 then
-        if identifier == postion[1] then
-            table.remove(postion, 1)
+    if #position > 0 then
+        if identifier == position[1] then
+            table.remove(position, 1)
         end
     end
 end)

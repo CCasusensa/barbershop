@@ -25,7 +25,7 @@ Citizen.CreateThread(function()
             AddTextEntry(GetCurrentResourceName(), _U('started'))
             DisplayHelpTextThisFrame(GetCurrentResourceName(), false)
             if (IsControlJustReleased(0, 38)) then
-                ESX.TriggerServerCallback('barbershop:checkpostion', function(result)
+                ESX.TriggerServerCallback('barbershop:checkposition', function(result)
                     if result then
                         readyCutHair()-- 剪頭髮
                         createBarber()-- 召喚理髮師
@@ -153,7 +153,7 @@ end
 function destorycam()
     RenderScriptCams(false, false, 0, 1, 0)
     DestroyCam(cam, false)
-    TriggerServerEvent('barbershop:removepostion')
+    TriggerServerEvent('barbershop:removeposition')
 end
 
 RegisterNetEvent('barbershop:disableUI')
