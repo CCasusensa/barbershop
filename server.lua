@@ -11,7 +11,7 @@ AddEventHandler("barbershop:pay", function(source, price)
     local xPlayer = ESX.GetPlayerFromId(src)
     if (price > 0) then
         xPlayer.removeMoney(price)
-        xPlayer.showNotification('您支付了' .. price .. '$')
+        xPlayer.showNotification(_U('paid', price))
     end
 end)
 

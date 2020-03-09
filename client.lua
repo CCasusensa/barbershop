@@ -22,7 +22,7 @@ Citizen.CreateThread(function()
         Citizen.Wait(19)
         local coords = GetEntityCoords(GetPlayerPed(-1))
         if (GetDistanceBetweenCoords(coords, 133.55, -1708.86, 29.29, true) < 0.5) then
-            AddTextEntry(GetCurrentResourceName(), '按~y~[E] ~w~來開始沙龍')
+            AddTextEntry(GetCurrentResourceName(), _U('started'))
             DisplayHelpTextThisFrame(GetCurrentResourceName(), false)
             if (IsControlJustReleased(0, 38)) then
                 ESX.TriggerServerCallback('barbershop:checkpostion', function(result)
@@ -30,7 +30,7 @@ Citizen.CreateThread(function()
                         readyCutHair()-- 剪頭髮
                         createBarber()-- 召喚理髮師
                     else
-                        TriggerEvent('esx:showNotification', '有人正在理髮請稍等!', GetPlayerServerId(PlayerId()))
+                        TriggerEvent('esx:showNotification', _U('alreadyHair'), GetPlayerServerId(PlayerId()))
                     end
                 end)
             end
@@ -45,7 +45,7 @@ Citizen.CreateThread(function()
     SetBlipColour(blip, 51)
     SetBlipAsShortRange(blip, true)
     BeginTextCommandSetBlipName('STRING')
-    AddTextComponentSubstringPlayerName('沙龍店')
+    AddTextComponentSubstringPlayerName(_U('bilpName'))
     EndTextCommandSetBlipName(blip)
 end)
 
@@ -86,7 +86,7 @@ AddEventHandler('barbershop:start', function()
     Citizen.CreateThread(function()
         while started do
             Citizen.Wait(0)
-            AddTextEntry(GetCurrentResourceName(), '~INPUT_FRONTEND_ENDSCREEN_ACCEPT~ ~b~離開\n~INPUT_SELECT_CHARACTER_MICHAEL~ 改變髮型 - ~g~ 200$\n~INPUT_SELECT_CHARACTER_FRANKLIN~ ~b~改變鬍子 - ~g~ 125$\n~INPUT_SELECT_CHARACTER_TREVOR~ ~b~改變眉毛 - ~g~ 180$\n~b~總費用:~g~' .. cost .. '$')
+            AddTextEntry(GetCurrentResourceName(), _U('buttom_Help', cost))
             DisplayHelpTextThisFrame(GetCurrentResourceName(), false)
             if (IsControlJustPressed(0, 215)) then
                 FreezeEntityPosition(GetPlayerPed(-1), false)
@@ -125,7 +125,7 @@ AddEventHandler('barbershop:viewangle', function()
     Citizen.CreateThread(function()
         while viewangle do
             Citizen.Wait(0)
-            AddTextEntry(GetCurrentResourceName(), '~INPUT_VEH_FLY_YAW_LEFT~ 預設角度 ~INPUT_VEH_FLY_YAW_RIGHT~ 側面')
+            AddTextEntry(GetCurrentResourceName(), _U('angle'))
             DisplayHelpTextThisFrame(GetCurrentResourceName(), false)
             if (IsControlJustPressed(0, 89)) then
                 createcam(true)
@@ -270,7 +270,7 @@ barberMenu = function(style)
     end)
     ESX.UI.Menu.CloseAll()
     ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'skin', {
-        title = "改變髮型 ",
+        title = _U('menu_title'),
         align = 'top-right',
         elements = elements
     }, function(data, menu)
