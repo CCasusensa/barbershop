@@ -51,6 +51,8 @@ end)
 
 
 function readyCutHair()
+    disableUI = true
+    TriggerEvent('barbershop:disableUI')
     TaskPedSlideToCoord(PlayerPedId(), 137.12, -1709.45, 29.3, 205.75, 1.0)
     DoScreenFadeOut(1000)
     while not IsScreenFadedOut() do
@@ -73,9 +75,8 @@ function createBarber()
     SetBlockingOfNonTemporaryEvents(Ped, true)
     TaskPedSlideToCoord(Ped, 137.15, -1710.50, 29.3, 205.75, 1.0)-- 讓npc移動到指定位置
     Citizen.Wait(10000)
-    started = true
-    disableUI = true
     FreezeEntityPosition(GetPlayerPed(-1), true)
+    started = true
     TriggerEvent('barbershop:start')
 end
 
@@ -103,7 +104,6 @@ AddEventHandler('barbershop:start', function()
                 DeletePed(Ped)
                 cost = 0
             elseif (IsControlJustPressed(0, 166) or IsControlJustPressed(0, 167) or IsControlJustPressed(0, 168)) then
-                disableUI = true
                 started = false
                 viewangle = true
                 if IsControlJustPressed(0, 166) then
@@ -156,13 +156,21 @@ function destorycam()
     TriggerServerEvent('barbershop:removepostion')
 end
 
-Citizen.CreateThread(function()
-    while disableUI do
-        HideHudComponentThisFrame(19)
-        Citizen.Wait(0)
-    end
+RegisterNetEvent('barbershop:disableUI')
+AddEventHandler('barbershop:disableUI', function()
+    Citizen.CreateThread(function()
+        while disableUI do
+            Citizen.Wait(0)
+            HideHudComponentThisFrame(19)
+            DisableControlAction(2, 37, true)
+            DisablePlayerFiring(GetPlayerPed(-1), true)
+            DisableControlAction(0, 106, true)
+            if IsDisabledControlJustPressed(2, 37) or IsDisabledControlJustPressed(0, 106) then
+                SetCurrentPedWeapon(player, GetHashKey("WEAPON_UNARMED"), true)
+            end
+        end
+    end)
 end)
-
 
 barberMenu = function(style)
     TriggerEvent('skinchanger:getSkin', function(skin)
