@@ -86,7 +86,7 @@ AddEventHandler('barbershop:start', function()
     Citizen.CreateThread(function()
         while started do
             Citizen.Wait(0)
-            AddTextEntry(GetCurrentResourceName(), _U('buttom_Help', cost))
+            AddTextEntry(GetCurrentResourceName(), _U('buttom_Help', Config.hairCost, Config.eyebrowCost, Config.beardCost, cost))
             DisplayHelpTextThisFrame(GetCurrentResourceName(), false)
             if (IsControlJustPressed(0, 215)) then
                 FreezeEntityPosition(GetPlayerPed(-1), false)
@@ -290,11 +290,11 @@ barberMenu = function(style)
         end)
         Citizen.Wait(11500)
         if style == 'beardstyle' then
-            cost = cost + 125
+            cost = cost + Config.beardCost
         elseif style == 'eyebrowstyle' then
-            cost = cost + 180
+            cost = cost + Config.eyebrowCost
         else
-            cost = cost + 200
+            cost = cost + Config.hairCost
         end
         ESX.UI.Menu.CloseAll()
         started = true
