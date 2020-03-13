@@ -6,9 +6,6 @@ FiveM ESX barbershop like ninjadev
   * [esx_skin](https://github.com/ESX-Org/esx_skin)
   
 
-# ninjadev video:
-https://streamable.com/ze8yf
-
 # my demo video:
 https://streamable.com/feo0k
 
@@ -21,7 +18,7 @@ Lifetime updates
 More languages that are from native language speakers
 And all bugs that free version have are solved contact us on discord to buy it
 
-Join discord to buy or pm the owners
+Join discord to buy or pm the owners.
 
 https://discord.gg/S22GN36
 
