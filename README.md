@@ -12,6 +12,17 @@ https://streamable.com/ze8yf
 # my demo video:
 https://streamable.com/feo0k
 
-you can edit any code, Don't sell !
+you can't edit this and you can't sell it !
+
+Buy the full version from us
+What I get this the full version ;
+What you get is all the barbershops fully working 27/7 support
+Lifetime updates
+More languages that are from native language speakers
+And all bugs that free version have are solved contact us on discord to buy it
+
+Join discord to buy or pm the owners
+
+https://discord.gg/S22GN36
 
 have fun^^
