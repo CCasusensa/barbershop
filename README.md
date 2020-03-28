@@ -21,6 +21,6 @@ And all bugs that free version have are solved contact us on discord to buy it
 Join discord to buy or pm the owners.
 αμπουσερούκος καπιταλουκος#9104
 lrenex#7883
-https://discord.gg/S22GN36
+https://discord.gg/nvw5MCt
 
 have fun^^
