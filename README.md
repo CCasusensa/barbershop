@@ -19,7 +19,7 @@ More languages that are from native language speakers
 And all bugs that free version have are solved contact us on discord to buy it
 
 Join discord to buy or pm the owners.
-αμπουσερούκος καπιταλουκος#9104
+ampouzer 🥶#2330
 lrenex#7883
 https://discord.gg/nvw5MCt
 
